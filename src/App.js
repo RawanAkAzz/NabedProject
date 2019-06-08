@@ -4,7 +4,8 @@ import HomePage from './Components/HomePage/HomePage'
 import NavBar from './Components/NavBar/Navbar';
 import Register from './Components/Register/Register';
 import SignIn from './Components/SignIn/SignIn';
-import Cards from './Components/Cards/Cards';
+import DoctorCards from "./Components/Cards/doctorCards"
+import HomeCards from './Components/Cards/homeCards';
 class App extends Component {
   
   render() {
@@ -14,7 +15,8 @@ class App extends Component {
         <HomePage/>
         <Register/>
         <SignIn/>
-        <Cards/>
+       <DoctorCards/>
+       <HomeCards/>
       </div>
     )
   }
