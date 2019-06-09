@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import Image from "../Image/Image"
-class HomePage extends Component {
+class Categories extends Component {
   render() {
     return(
       <div>
       
-        <Image/>
+        Categories
       </div>
     )
   }
 }
 
-export default HomePage
+export default Categories
