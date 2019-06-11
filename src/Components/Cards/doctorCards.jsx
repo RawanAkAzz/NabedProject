@@ -1,10 +1,27 @@
 import React, { Component } from "react";
+import './doctorCards';
 
 class doctorCards extends Component {
+ constructor(props){
+  super(props);
+   this.status = {
+     doctor : [] 
+   }
+ }
 
+// componentDidMount(){
+//   fetch('/')
+//      .then(res => res.json())
+//      .then(doctor => this.setState({doctor} , () => console.log('doctor' ,
+//      doctor )));
+// }
+ 
  render() { 
     return(
     <div>
+      
+         
+        
     <div>
 <article className="mw5 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10"/>
   <div className="tc">
