@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from "./node_modules/react";
 import "./App.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "./node_modules/react-router-dom";
 import HomePage from "./Components/HomePage/HomePage";
 import NavBar from "./Components/NavBar/Navbar";
 import Register from "./Components/Register/Register";
@@ -14,6 +14,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        
         <Router>
           <NavBar />
           <Route exact path="/" component={HomePage} />
