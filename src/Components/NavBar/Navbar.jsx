@@ -1,5 +1,5 @@
-import React, { Component } from "./node_modules/react";
-import {Link } from './node_modules/react-router-dom';
+import React, { Component } from  "../../../node_modules/react";
+import {Link } from '../../../node_modules/react-dom';
 class NavBar extends Component {
   render() {
     return (
@@ -42,12 +42,12 @@ class NavBar extends Component {
             About
           </a>
 
-          <Link
+          <a
             class="f6 fw4 hover-black no-underline black-70 dib ml2 pv2 ph3 ba"
-            to="/signin"
+            href="/signin"
           >
             LogIn
-          </Link>
+          </a>
         </div>
       </nav>
     {/* <Router>

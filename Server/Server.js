@@ -1,22 +1,35 @@
 const express = require('express');
+const db = require("./db.js");
 const app = express();
 const bodyParser= require('body-parser');
-
-
-const port = 5000;
-
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.get('/', (req , res)=>{
-    const doctor = [
-        {firstName:"ali", lastName:"ahmad"},
-        {firstName:"raa3", lastName:"awehmad"},
-        {firstName:"ttali", lastName:"rtr"}
-    ];
-    res.json(doctor);//sending response
+app.get('/Doctors', (req , res)=>{
+    db.Doctor.find({}).then(function(doctor){
+        return res.send(doctor);
+     })
+     .catch(function(err){
+        return res.status(HTTP_SERVER_ERROR).send(err.message);
+    })
 } );
-
-app.listen(5000 , () => console.log('server started on port 5000'));
+app.post('/Register', (req , res)=>{
+  var name = req.body.name
+  var fbAccount = req.body.fbAccount
+  var  description = req.body.description
+   var username = req.body.username
+  var phoneNumber = req.body.phoneNumber
+  var  Location = req.body.Location
+   var password = req.body.password
+   db.Doctor.create({name: name, fbAccount: fbAccount, description
+    : description ,username:username,phoneNumber:phoneNumber,Location:Location , password:password})
+         .then(function(doctor){
+            return res.send({name: name});
+         })
+         .catch(function(err){
+            return res.status(HTTP_SERVER_ERROR).send(err.message);
+        })
+   } );
+const port = 5000;
+app.listen(port , () => console.log( `listening on port ${port}`));
