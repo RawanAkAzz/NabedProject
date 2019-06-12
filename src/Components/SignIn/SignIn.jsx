@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 
 class SignIn extends Component {
-  render() {
+ 
+
+  render(){
     return (
       <article class="br2 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw5 center">
         <main class="pa4 black-80">
@@ -39,15 +41,18 @@ class SignIn extends Component {
               />
             </div>
             <div class="lh-copy mt3">
-              <a href="#0" class="f6 link dim black db">
-                Register
-              </a>
+               <a
+                class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+
+            href="/Register"
+          >
+            Register
+          </a>
             </div>
           </form>
         </main>
       </article>
     );
+    }
   }
-}
-
 export default SignIn;

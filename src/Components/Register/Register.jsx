@@ -20,7 +20,7 @@ class Register extends Component {
     console.log(e.target.value);
     this.setState({ [e.target.name]: e.target.value });
   }
-  click(event) {
+  onClick(event) {
     event.preventDefault();
     const data = this.state
     fetch('http://localhost:5000/Register', {
@@ -95,7 +95,7 @@ class Register extends Component {
               // autoComplete="current-phoneNumber"
               // margin="normal"
               // variant="filled"
-              onChange={this.handleChange}
+              onChange={this.onChange}
               name="phoneNumber"
 
             />
@@ -118,7 +118,7 @@ class Register extends Component {
               // autoComplete="current-phoneNumber"
               // margin="normal"
               // variant="filled"
-              onChange={this.handleChange}
+              onChange={this.onChange}
               name="location"
 
             />
@@ -140,7 +140,7 @@ class Register extends Component {
               // autoComplete="current-phoneNumber"
               // margin="normal"
               // variant="filled"
-              onChange={this.handleChange}
+              onChange={this.onChange}
               name="fbAccount"
 
             />
@@ -153,7 +153,7 @@ class Register extends Component {
 
 
 
-            <button   type="submit" onClick={(event) => this.click(event)} >Register</button>
+            <button   type="submit" onClick={(event) => this.click(event)} ></button>
 
 
           </center>
