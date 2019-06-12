@@ -1,52 +1,215 @@
-import React from "react";
+import React, { Component } from "react";
 
-const Register = ({ onRouteChange }) => {
-  return (
-    <article class="br2 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw5 center">
-      <main class="pa4 black-80">
-        <form class="measure center">
-          <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
-            <legend class="f4 fw6 ph0 mh0">LogIn</legend>
-            <div class="mt3">
-              <label class="db fw6 lh-copy f6" for="email-address">
-                Email
-              </label>
-              <input
-                class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
-                type="email"
-                name="email-address"
-                id="email-address"
-              />
-            </div>
-            <div class="mv3">
-              <label class="db fw6 lh-copy f6" for="password">
-                Password
-              </label>
-              <input
-                class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
-                type="password"
-                name="password"
-                id="password"
-              />
-            </div>
-          </fieldset>
-          <div class="">
+class Register extends Component {
+    constructor(props){
+      super(props);
+      this.state ={
+        name : "",
+       fbAccount : "",
+       description : "",
+        username : "",
+        phoneNumber : "",
+         Location : "",
+         password : ""
+      };
+          this.onChange = this.onChange.bind(this);
+  }
+
+
+  onChange(e) {
+    console.log(e.target.value);
+    this.setState({ [e.target.name]: e.target.value });
+  }
+  click(event) {
+    event.preventDefault();
+    const data = this.state
+    fetch('http://localhost:5000/Register', {
+      method: 'post',
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" }
+    }).then(response => response.json())
+      .then(state => this.setState(state));
+
+    console.log(this.state);
+  }
+  render() {
+      return (
+        <div className="form-style-7">
+
+        <form >
+          <body> <center>
             <input
-              onClick={onRouteChange("home")}
-              class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
-              type="submit"
-              value="LogIn"
+              id="filled-search"
+              label="name"
+
+              type="text"
+              placeholder="Name"
+              // className={classes.textField}
+              // margin="normal"
+              // variant="filled"
+              onChange={this.onChange}
+              name="Name"
             />
-          </div>
-          <div class="lh-copy mt3">
-            <a href="#0" class="f6 link dim black db">
-              Register
-            </a>
-          </div>
+            <br />
+      
+            <input
+              id="filled-search"
+              label="username"
+
+              type="text"
+              placeholder="username"
+              // className={classes.textField}
+              // margin="normal"
+              // variant="filled"
+              onChange={this.onChange}
+              name="username"
+            />
+
+            <br />
+
+
+            <input
+               id="filled-search"
+              label="pasasword"
+              // className={classes.textField}
+              type="text"
+              placeholder="pasasword"
+              name="pasasword"
+              autoComplete="pasasword"
+              // margin="normal"
+              // variant="filled"
+              onChange={this.onChange}
+
+            />
+
+
+            <br />
+
+
+            <input
+            id="filled-search"
+              label="phoneNumber"
+              // className={classes.textField}
+              type="text"
+              placeholder="PhoneNumber"
+              // autoComplete="current-phoneNumber"
+              // margin="normal"
+              // variant="filled"
+              onChange={this.handleChange}
+              name="phoneNumber"
+
+            />
+          
+
+
+
+            <br />
+
+            
+            <br />
+
+
+            <input
+            id="filled-search"
+              label="location"
+              // className={classes.textField}
+              type="text"
+              placeholder="location"
+              // autoComplete="current-phoneNumber"
+              // margin="normal"
+              // variant="filled"
+              onChange={this.handleChange}
+              name="location"
+
+            />
+          
+
+
+
+            <br />
+            
+            <br />
+
+
+            <input
+            id="filled-search"
+              label="fbAccount"
+              // className={classes.textField}
+              type="text"
+              placeholder="fbAccount"
+              // autoComplete="current-phoneNumber"
+              // margin="normal"
+              // variant="filled"
+              onChange={this.handleChange}
+              name="fbAccount"
+
+            />
+          
+
+
+
+            <br />
+
+
+
+
+            <button   type="submit" onClick={(event) => this.click(event)} >Register</button>
+
+
+          </center>
+          </body>
         </form>
-      </main>
-    </article>
-  );
-};
+      </div>
+    )
+  }
+}
+
 
 export default Register;
+
+//   return (
+//     <article class="br2 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw5 center">
+//       <main class="pa4 black-80">
+//         <form class="measure center">
+//           <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
+//             <legend class="f4 fw6 ph0 mh0">LogIn</legend>
+//             <div class="mt3">
+//               <label class="db fw6 lh-copy f6" for="email-address">
+//                 Email
+//               </label>
+//               <input
+//                 class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+//                 type="email"
+//                 name="email-address"
+//                 id="email-address"
+//               />
+//             </div>
+//             <div class="mv3">
+//               <label class="db fw6 lh-copy f6" for="password">
+//                 Password
+//               </label>
+//               <input
+//                 class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+//                 type="password"
+//                 name="password"
+//                 id="password"
+//               />
+//             </div>
+//           </fieldset>
+//           <div class="">
+//             <input
+//               onClick={onRouteChange("home")}
+//               class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+//               type="submit"
+//               value="LogIn"
+//             />
+//           </div>
+//           <div class="lh-copy mt3">
+//             <a href="#0" class="f6 link dim black db">
+//               Register
+//             </a>
+//           </div>
+//         </form>
+//       </main>
+//     </article>
+//   );

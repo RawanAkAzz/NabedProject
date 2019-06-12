@@ -15,13 +15,13 @@ app.get('/Doctors', (req , res)=>{
     })
 } );
 app.post('/Register', (req , res)=>{
-  var name = req.body.name
-  var fbAccount = req.body.fbAccount
-  var  description = req.body.description
-   var username = req.body.username
+  var name = req.body.name 
+  var username = req.body.username
+   var password = req.body.password
   var phoneNumber = req.body.phoneNumber
   var  Location = req.body.Location
-   var password = req.body.password
+  var fbAccount = req.body.fbAccount
+  
    db.Doctor.create({name: name, fbAccount: fbAccount, description
     : description ,username:username,phoneNumber:phoneNumber,Location:Location , password:password})
          .then(function(doctor){
