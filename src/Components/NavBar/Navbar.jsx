@@ -44,7 +44,7 @@ class NavBar extends Component {
 
           <a
             class="f6 fw4 hover-black no-underline black-70 dib ml2 pv2 ph3 ba"
-            href="/signin"
+            herf="/signin"
           >
             LogIn
           </a>
